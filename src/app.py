@@ -50,6 +50,10 @@ def edit_image(command):
         encoded_image = fliph(decoded_data)
     elif command == "flipv":
         encoded_image = flipv(decoded_data)
+    elif command == "greyscale":
+        encoded_image = greyscale(decoded_data)
+    elif command == "negative":
+        encoded_image = negative(decoded_data)
     else: 
         encoded_image = encoded_ori_image
 
