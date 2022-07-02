@@ -154,9 +154,6 @@ def zoomout(file):
                 for j in range (kolom):
                     temp = int(matriksawal[i*2,j*2,color]) + int(matriksawal[i*2+1,j*2+1,color]) + int(matriksawal[i*2+1,j*2,color]) + int(matriksawal[i*2,j*2+1,color])
                     matrikshasil[i,j,color] = round(temp/4)
-                    if i == 0 and j == 0 and color == 0:
-                        print(temp)
-        print(matrikshasil[0,0,0],matriksawal[0,0,0],matriksawal[0,1,0],matriksawal[1,0,0],matriksawal[1,1,0])
     else:
         matrikshasil = numpy.zeros((baris,kolom))  #Inisialisasi matriks kosong sebagai hasilnya
         for i in range (baris):
