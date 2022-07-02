@@ -1,49 +1,30 @@
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template,jsonify
+from flask_cors import CORS
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
 from PIL import Image
 import base64
 import io
-from Backend.milestone1 import *
-from Backend.milestone2 import *
-from Backend.milestone3 import *
+from milestone1 import *
+from milestone2 import *
+from milestone3 import *
+import re
 
-app = Flask(__name__,template_folder='Frontend', static_folder='Frontend')
-app.secret_key = "secret key"
+app = Flask(__name__)
+CORS(app)
 
-# GLOBAL VARIABLES
-cache = {}
- 
-@app.route('/')
+@app.route('/', methods=['POST','GET'])
 def home():
-    return render_template('index.html')
- 
-@app.route('/', methods=['POST'])
-def upload_image():
-    #get File dan Rate dari form submission
-    file = request.files['file']
+    return jsonify({"status": "success", "message": "Welcome to the API"})
 
-    #save image original
-    ori_image = Image.open(file)
-    img_format = ori_image.format
-    data = io.BytesIO()
-    ori_image.save(data,img_format)
-    encoded_ori_image = base64.b64encode(data.getvalue())
-    encoded_image = encoded_ori_image
-
-    cache["format"] = img_format
-    cache["base"] = encoded_ori_image
-    cache["current"]= encoded_image
-
-    return render_template('index.html', filename=encoded_image.decode('utf-8'), basename = encoded_ori_image.decode('utf-8'), img_format= img_format)
-
-@app.route('/<command>', methods=['POST'])
+@app.route('/<command>', methods=['POST','GET'])
 def edit_image(command):
-    encoded_ori_image = cache["base"]
-    img_format = cache["format"]
-    decoded_data=io.BytesIO(base64.b64decode(cache["current"]))
-    
+    decoded_data = request.get_json()
+
+    decoded_data = re.sub('^data:image/.+;base64,', '', decoded_data["imgsource"])
+    decoded_data = io.BytesIO(base64.b64decode(decoded_data))
+
     if command =="turnleft":
         encoded_image = turnleft(decoded_data)
     elif command == "turnright":
@@ -79,11 +60,10 @@ def edit_image(command):
     elif command == "lfilter":
         encoded_image = gauss("smooth",decoded_data)
     else: 
-        encoded_image = encoded_ori_image
+        encoded_image = None
 
-    cache["current"]= encoded_image
+    return jsonify({"result": encoded_image.decode('utf-8')})
 
-    return render_template('index.html', filename=encoded_image.decode('utf-8'), basename = encoded_ori_image.decode('utf-8'), img_format= img_format)
 
 if __name__ == '__main__':
     app.run(debug = True)

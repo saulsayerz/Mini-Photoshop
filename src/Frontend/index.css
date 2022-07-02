@@ -329,3 +329,12 @@ footer div {
 .link-button:active {
     color: red;
 }
+
+#photoshop,
+#form-part {
+    transition: .6s ease opacity, .6s ease transform;
+}
+
+#photoshop {
+    display: none;
+}

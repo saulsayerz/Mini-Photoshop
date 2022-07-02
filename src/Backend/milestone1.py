@@ -1,6 +1,4 @@
 
-import sys
-sys.path.insert(0, 'Backend/')
 from helper import *
 from math import floor
 import numpy
