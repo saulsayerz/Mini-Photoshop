@@ -11,7 +11,6 @@
 
     <!-- Our CSS JS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +32,7 @@
 
     <!-- FORM TO UPLOAD PICTURE -->
     <div id="form-part">
-        <form method="post" action="/" enctype="multipart/form-data" id="main-form" onsubmit="resultShow()">
+        <form method="post" action="/" enctype="multipart/form-data" id="main-form">
             <input type="file" name="file" class="form-control" autocomplete="off" id="file" accept=".png, .jpg, .jpeg" required>
             <br>
             <p>
@@ -46,33 +45,76 @@
     {% if img_format %}
     <div class="parent" id="photoshop">
         <div class="icon-bar">
-            <!-- <form action="/turnleft" method="post">
-                <a href="turnleft"><i class="fa fa-home"></i>rotate left</a>
-            </form> -->
-            <form method="post" action="/turnleft" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> turn left</button>
-            </form>
-            <form method="post" action="/turnright" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> turn right</button>
-            </form>
-            <form method="post" action="/fliph" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> flip h</button>
-            </form>
-            <form method="post" action="/flipv" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> flip v</button>
-            </form>
-            <form method="post" action="/negative" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> negative</button>
-            </form>
-            <form method="post" action="/greyscale" class="inline">
-                <input type="hidden">
-                <button type="submit" class="fa fa-home"> grayscale</button>
-            </form>
+            <div>
+                <form method="post" action="/turnleft" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> turn left</button>
+                </form>
+                <form method="post" action="/turnright" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> turn right</button>
+                </form>
+                <form method="post" action="/fliph" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> flip h</button>
+                </form>
+                <form method="post" action="/flipv" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> flip v</button>
+                </form>
+                <form method="post" action="/negative" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> negative</button>
+                </form>
+                <form method="post" action="/complement" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> complement</button>
+                </form>
+                <form method="post" action="/zoomin" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> zoomin</button>
+                </form>
+                <form method="post" action="/zoomout" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> zoomout</button>
+                </form>
+                <form method="post" action="/brighten" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> brighten</button>
+                </form>
+                <form method="post" action="/darken" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> darken</button>
+                </form>
+                <form method="post" action="/greyscale" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> grayscale</button>
+                </form>
+                <form method="post" action="/contrast" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> contrast</button>
+                </form>
+                <form method="post" action="/tpangkat" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> pangkat</button>
+                </form>
+                <form method="post" action="/tlog" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> log</button>
+                </form>
+                <form method="post" action="/gblur" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> gblur</button>
+                </form>
+                <form method="post" action="/hfilter" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> sharpen</button>
+                </form>
+                <form method="post" action="/lfilter" class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-home"> noise</button>
+                </form>
+            </div>
         </div>
         <div class="psimage">
             <img src="data:image/{{ img_format }};base64,{{ filename }}" alt="Before" id="before-image">

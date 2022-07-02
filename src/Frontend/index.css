@@ -1,322 +1,331 @@
-    body {
-        padding: 0;
-        margin: 0;
-        font-family: 'Epilogue', sans-serif;
-        /* background : url("3ver4.svg") no-repeat; */
-        background-size: cover;
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Epilogue', sans-serif;
+    background-color: #B9D9EB;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+#h1-main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #f9e45b;
+    text-shadow: -1px 5px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
+    transition: all ease 0.4s;
+}
+
+#h1-main:hover {
+    text-shadow: -1px 10px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
+    transition: all ease 0.4s;
+}
+
+#h2-main {
+    color: #f9e45b;
+    font-size: 3rem;
+    margin-left: 2cm;
+    text-shadow: -1px 3px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
+    transition: all ease 0.4s;
+}
+
+#h2-main:hover {
+    text-shadow: -1px 5px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
+    transition: all ease 0.4s;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.container {
+    clear: both;
+    overflow: auto;
+}
+
+nav {
+    float: right;
+}
+
+.logo img {
+    float: left;
+}
+
+.navbar-logo {
+    display: inline;
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+#button-about-us {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1b4d89;
+    padding: 10px 20px 10px 20px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+#button-about-us:hover {
+    background-color: white;
+    color: #1b4d89;
+    transition: all ease 0.4s;
+}
+
+.download {
+    height: 40px;
+    line-height: 43px;
+    margin: 10px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 1px;
+    background-color: #818181;
+    border-radius: 10px;
+}
+
+.download:hover {
+    background-color: #444444;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(34, 34, 34);
+    transition: all ease 0.2s;
+}
+
+
+/* Judul */
+
+header h1 {
+    color: #444444;
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 130px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+    border-top: 2px solid #1b4d89;
+    background-color: #1b4d89;
+    bottom: 0;
+    padding: 0 20px 0 20px;
+}
+
+footer div {
+    text-decoration: none;
+    color: rgba(189, 189, 189, 0.911);
+    padding: 10px;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width: 902px) {
+    .link-report {
+        margin: 25% 4% 10% 4%;
         text-align: center;
-        overflow-x: hidden;
     }
-    
-    #h1-main {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        font-size: 5rem;
-        font-weight: 900;
-        color: #f9e45b;
-        text-shadow: -1px 5px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
-        transition: all ease 0.4s;
+    .link-report form button {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 35%;
     }
-    
-    #h1-main:hover {
-        text-shadow: -1px 10px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
-        transition: all ease 0.4s;
+    .link-report form textarea {
+        margin-left: 8%;
     }
-    
-    #h2-main {
-        color: #f9e45b;
-        font-size: 3rem;
-        margin-left: 2cm;
-        text-shadow: -1px 3px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
-        transition: all ease 0.4s;
+    .image-report h5 {
+        text-align: center;
     }
-    
-    #h2-main:hover {
-        text-shadow: -1px 5px 0 #1b4d89, 1px 1px 0 #1b4d89, 1px -1px 0 #1b4d89, -1px -1px 0 #1b4d89;
-        transition: all ease 0.4s;
-    }
-    
-    h1 {
-        font-size: 4rem;
-        font-weight: 800;
-    }
-    
-    .container {
-        clear: both;
-        overflow: auto;
-    }
-    
-    nav {
-        float: right;
-    }
-    
-    .logo img {
-        float: left;
-    }
-    
-    .navbar-logo {
-        display: inline;
-        text-decoration: none;
-        font-size: 3rem;
-        font-weight: 900;
-    }
-    
-    #button-about-us {
-        text-decoration: none;
-        font-size: 1.2rem;
-        color: white;
-        background-color: #1b4d89;
-        padding: 10px 20px 10px 20px;
-        border-radius: 50px;
-        transition: all 0.2s ease;
-    }
-    
-    #button-about-us:hover {
-        background-color: white;
-        color: #1b4d89;
-        transition: all ease 0.4s;
-    }
-    
-    .download {
-        height: 40px;
-        line-height: 43px;
-        margin: 10px;
-        padding: 0px 22px;
-        display: flex;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        font-weight: 400;
-        color: #ffffff;
-        letter-spacing: 1px;
-        background-color: #818181;
-        border-radius: 10px;
-    }
-    
-    .download:hover {
-        background-color: #444444;
-        color: #fff;
-        border-radius: 10px;
-        box-shadow: 5px 5px 20px rgb(34, 34, 34);
-        transition: all ease 0.2s;
-    }
-    /* Judul */
-    
+}
+
+@media only screen and (max-width: 376px) {
     header h1 {
-        color: #444444;
-        text-align: center;
-        font-size: 3.5rem;
-        line-height: 130px;
-        letter-spacing: 1px;
-        font-weight: 600;
-        margin-bottom: 10px;
+        font-size: 3rem;
     }
-    /* Footer */
-    
     footer {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 5%;
-        border-top: 2px solid #1b4d89;
-        background-color: #1b4d89;
-        bottom: 0;
-        padding: 0 20px 0 20px;
+        height: auto;
+        display: inline-block;
     }
-    
-    footer div {
-        text-decoration: none;
-        color: rgba(189, 189, 189, 0.911);
-        padding: 10px;
-    }
-    /* Responsive */
-    
-    @media only screen and (max-width: 902px) {
-        .link-report {
-            margin: 25% 4% 10% 4%;
-            text-align: center;
-        }
-        .link-report form button {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            margin-right: 35%;
-        }
-        .link-report form textarea {
-            margin-left: 8%;
-        }
-        .image-report h5 {
-            text-align: center;
-        }
-    }
-    
-    @media only screen and (max-width: 376px) {
-        header h1 {
-            font-size: 3rem;
-        }
-        footer {
-            height: auto;
-            display: inline-block;
-        }
-    }
-    
-    #form-part {
-        margin: 0 5cm 2cm 5cm;
-        padding: 1cm 2cm 1cm 2cm;
-        background: white;
-        box-shadow: 0px 0px 20px 10px #1b4d89;
-    }
-    
-    #submit-button {
-        background-color: #6db784;
-        border: none;
-    }
-    
-    #submit-button:hover {
-        background: #4c7e5c;
-        transition: all ease 0.4s;
-    }
-    
-    #compressionSlider {
-        width: 25%;
-        float: left;
-        margin: 20px 0 0 20cm;
-    }
-    
-    #nav-text {
-        color: white;
-        margin: 10px 0 0 10px;
-        padding: 10px;
-    }
-    /* section for before image and after image */
-    
-    #compression-result {
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
-        transition: all ease 0.5s;
-    }
-    
-    #compression-result.show {
-        opacity: 1;
-        height: 15cm;
-        transition: all ease 0.5s;
-        margin-bottom: 50px;
-    }
-    
-    #show-button {
-        text-align: center;
-        color: #fff;
-        background: #1b4d89;
-        border: none;
-        width: 200px;
-        height: 30px;
-        margin: 15px 0 15px 0;
-        border-radius: 20px;
-        transition: all 0.2s ease;
-        outline: none;
-        font-size: 15px;
-    }
-    
-    #show-button:hover {
-        box-shadow: 0 1px 0 #ccc, 0 1.5px 0 #c9c9c9, 0 2px 0 #bbb, 0 2.5px 0 #b9b9b9, 0 3px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-        transition: all ease 0.4s;
-    }
-    
-    #download-button {
-        display: block;
-        margin-bottom: 3cm;
-    }
-    
-    #download-button button {
-        text-align: center;
-        color: #fff;
-        background-color: #3b724c;
-        border: none;
-        width: 180px;
-        height: 65px;
-        margin: 0 0 15px 0;
-        border-radius: 10px;
-        transition: all 0.2s ease;
-        outline: none;
-        font-size: 17.5px;
-    }
-    
-    #download-button button:hover {
-        box-shadow: 0 1px 0 #ccc, 0 1.5px 0 #c9c9c9, 0 2px 0 #bbb, 0 2.5px 0 #b9b9b9, 0 3px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-        transition: all ease 0.4s;
-    }
-    /* Style the sidebar - fixed full height */
-    
-    .sidebar {
-        height: 100%;
-        width: 50px;
-        position: fixed;
-        background-color: #111;
-        overflow-x: hidden;
-    }
-    /* Style sidebar links */
-    
-    .parent {
-        margin: 0 5cm 2cm 5cm;
-        background: white;
-        border: thin solid black;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .child {
-        background-color: #FFFF00;
-        width: 100px;
-    }
-    
-    .icon-bar {
-        width: 150px;
-        background-color: #555;
-        left: 0;
-        top: 0;
-    }
-    
-    .icon-bar form button,
-    .icon-bar a {
-        display: block;
-        text-align: center;
-        padding: 3px;
-        transition: all 0.3s ease;
-        color: white;
-        font-size: 20px;
-        background-color: transparent;
-        border: none
-    }
-    
-    .icon-bar a:hover,
-    .icon-bar form:hover {
-        background-color: #000;
-    }
-    
-    .psimage {
-        height: 100%;
-        width: 70%;
-        float: left;
-    }
-    
-    .inline {
-        display: inline;
-    }
-    
-    .link-button {
-        background: none;
-        border: none;
-        color: blue;
-        text-decoration: underline;
-        cursor: pointer;
-        font-size: 1em;
-        font-family: serif;
-    }
-    
-    .link-button:focus {
-        outline: none;
-    }
-    
-    .link-button:active {
-        color: red;
-    }
+}
+
+#form-part {
+    margin: 0 5cm 2cm 5cm;
+    padding: 1cm 2cm 1cm 2cm;
+    background: white;
+    box-shadow: 0px 0px 20px 10px #1b4d89;
+}
+
+#submit-button {
+    background-color: #6db784;
+    border: none;
+}
+
+#submit-button:hover {
+    background: #4c7e5c;
+    transition: all ease 0.4s;
+}
+
+#compressionSlider {
+    width: 25%;
+    float: left;
+    margin: 20px 0 0 20cm;
+}
+
+#nav-text {
+    color: white;
+    margin: 10px 0 0 10px;
+    padding: 10px;
+}
+
+
+/* section for before image and after image */
+
+#compression-result {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all ease 0.5s;
+}
+
+#compression-result.show {
+    opacity: 1;
+    height: 15cm;
+    transition: all ease 0.5s;
+    margin-bottom: 50px;
+}
+
+#show-button {
+    text-align: center;
+    color: #fff;
+    background: #1b4d89;
+    border: none;
+    width: 200px;
+    height: 30px;
+    margin: 15px 0 15px 0;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    outline: none;
+    font-size: 15px;
+}
+
+#show-button:hover {
+    box-shadow: 0 1px 0 #ccc, 0 1.5px 0 #c9c9c9, 0 2px 0 #bbb, 0 2.5px 0 #b9b9b9, 0 3px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    transition: all ease 0.4s;
+}
+
+#download-button {
+    display: block;
+    margin-bottom: 3cm;
+}
+
+#download-button button {
+    text-align: center;
+    color: #fff;
+    background-color: #3b724c;
+    border: none;
+    width: 180px;
+    height: 65px;
+    margin: 0 0 15px 0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    outline: none;
+    font-size: 17.5px;
+}
+
+#download-button button:hover {
+    box-shadow: 0 1px 0 #ccc, 0 1.5px 0 #c9c9c9, 0 2px 0 #bbb, 0 2.5px 0 #b9b9b9, 0 3px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    transition: all ease 0.4s;
+}
+
+.parent {
+    margin: 0 5cm 2cm 5cm;
+    background: white;
+    border: thin solid black;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+}
+
+.child {
+    background-color: #FFFF00;
+    width: 100px;
+}
+
+.icon-bar {
+    align-items: stretch;
+    height: 600px;
+    width: 150px;
+    background-color: #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-bar form button,
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 3px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+    border: none
+}
+
+.icon-bar a:hover,
+.icon-bar form:hover {
+    background-color: #000;
+}
+
+.psimage {
+    display: block;
+    margin: 0 auto;
+}
+
+.psimage img {
+    justify-content: center;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.inline button {
+    align-self: flex-start;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: serif;
+}
+
+.link-button:focus {
+    outline: none;
+}
+
+.link-button:active {
+    color: red;
+}

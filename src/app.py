@@ -5,7 +5,9 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 import base64
 import io
-from Backend.algorithm import *
+from Backend.milestone1 import *
+from Backend.milestone2 import *
+from Backend.milestone3 import *
 
 app = Flask(__name__,template_folder='Frontend', static_folder='Frontend')
 app.secret_key = "secret key"
@@ -54,6 +56,28 @@ def edit_image(command):
         encoded_image = greyscale(decoded_data)
     elif command == "negative":
         encoded_image = negative(decoded_data)
+    elif command == "complement":
+        encoded_image = complement(decoded_data)
+    elif command == "zoomin":
+        encoded_image = zoomin(decoded_data)
+    elif command == "zoomout":
+        encoded_image = zoomout(decoded_data)
+    elif command == "brighten":
+        encoded_image = brighten(75,decoded_data)
+    elif command == "darken":
+        encoded_image = brighten(-75,decoded_data)
+    elif command == "contrast":
+        encoded_image = contrast(decoded_data)
+    elif command == "tpangkat":
+        encoded_image = transformasi("pangkat",decoded_data)
+    elif command == "tlog":
+        encoded_image = transformasi("logaritma",decoded_data)
+    elif command == "gblur":
+        encoded_image = gauss("blur",decoded_data)
+    elif command == "hfilter":
+        encoded_image = gauss("sharpen",decoded_data)
+    elif command == "lfilter":
+        encoded_image = gauss("smooth",decoded_data)
     else: 
         encoded_image = encoded_ori_image
 

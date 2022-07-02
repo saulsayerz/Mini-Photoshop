@@ -1,31 +1,9 @@
-from PIL import Image, ImageChops
+
+import sys
+sys.path.insert(0, 'Backend/')
+from helper import *
+from math import floor
 import numpy
-import io
-import base64
-from io import BytesIO
-
-'''HELPER'''
-
-def filetomatriks(file):
-    # Fungsi ini menconvert gambar ke matriks numpy
-    # Parameter : gambar
-    # Return : matriks
-    img = Image.open(file)
-    matriks = numpy.array(img)  # convert gambarnya jadi matriks
-    return matriks
-
-def matrikstostring(matrikshasil,file):  
-    # Fungsi ini mengubah matriks ke string, diubah ke unsigned int 0 - 255 dahulu sesuai elemen RGB
-    # Parameter : matriks
-    # Return : string
-     
-    numpy.clip(matrikshasil,0,255,matrikshasil)
-    matriksunsigned = matrikshasil.astype('uint8') 
-    hasilgambar = Image.fromarray(matriksunsigned)
-    buffered = BytesIO()
-    hasilgambar.save(buffered, format="JPEG")
-    img_str = base64.b64encode(buffered.getvalue())
-    return img_str
 
 '''MILESTONE 1'''
 
@@ -70,7 +48,7 @@ def fliph(file):
                 for j in range (matriksawal.shape[1]):
                     matrikshasil[i,j,color] = matriksawal[i,matriksawal.shape[1]-1-j,color]
     else: 
-        matrikshasil = numpy.zeros((matriksawal.shape[1], matriksawal.shape[0]))  #Inisialisasi matriks kosong sebagai hasilnya
+        matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1]))  #Inisialisasi matriks kosong sebagai hasilnya
         for i in range (matriksawal.shape[0]):
             for j in range (matriksawal.shape[1]):
                 matrikshasil[i,j] = matriksawal[i,matriksawal.shape[1]-1-j]
@@ -86,7 +64,7 @@ def flipv(file):
                 for j in range (matriksawal.shape[1]):
                     matrikshasil[i,j,color] = matriksawal[matriksawal.shape[0] -i -1,j,color]
     else: 
-        matrikshasil = numpy.zeros((matriksawal.shape[1], matriksawal.shape[0]))  #Inisialisasi matriks kosong sebagai hasilnya
+        matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1]))  #Inisialisasi matriks kosong sebagai hasilnya
         for i in range (matriksawal.shape[0]):
             for j in range (matriksawal.shape[1]):
                 matrikshasil[i,j] = matriksawal[matriksawal.shape[0] -i -1,j]
@@ -110,13 +88,82 @@ def negative(file):
     if matriksawal.ndim == 3:
         matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1], matriksawal.shape[2]))  #Inisialisasi matriks kosong sebagai hasilnya
         for color in range (matriksawal.shape[2]):
-            for i in range (matriksawal.shape[0]):
-                for j in range (matriksawal.shape[1]):
-                    matrikshasil[i,j,color] = 255 - matriksawal[i,j,color]
+            if color < 3:
+                for i in range (matriksawal.shape[0]):
+                    for j in range (matriksawal.shape[1]):
+                        matrikshasil[i,j,color] = 255 - matriksawal[i,j,color]
+            else :
+                matrikshasil[:,:,color] = matriksawal[:,:,color]
     else:
-        matrikshasil = numpy.zeros((matriksawal.shape[1], matriksawal.shape[0]))  #Inisialisasi matriks kosong sebagai hasilnya
+        matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1]))  #Inisialisasi matriks kosong sebagai hasilnya
         for i in range (matriksawal.shape[0]):
             for j in range (matriksawal.shape[1]):
                 matrikshasil[i,j] = 255 - matriksawal[i,j]
+    stringgambar = matrikstostring(matrikshasil,file)
+    return stringgambar
+
+def complement(file):
+    matriksawal = filetomatriks(file)
+    if matriksawal.ndim == 3:
+        matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1], matriksawal.shape[2]))  #Inisialisasi matriks kosong sebagai hasilnya
+        for color in range (matriksawal.shape[2]):
+            for i in range (matriksawal.shape[0]):
+                for j in range (matriksawal.shape[1]):
+                    if color < 3:
+                        for i in range (matriksawal.shape[0]):
+                            for j in range (matriksawal.shape[1]):
+                                matrikshasil[i,j,color] = ~(matriksawal[i,j,color])
+                    else :
+                        matrikshasil[:,:,color] = matriksawal[:,:,color]
+    else:
+        matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1]))  #Inisialisasi matriks kosong sebagai hasilnya
+        for i in range (matriksawal.shape[0]):
+            for j in range (matriksawal.shape[1]):
+                matrikshasil[i,j] = ~(matriksawal[i,j])
+    stringgambar = matrikstostring(matrikshasil,file)
+    return stringgambar
+
+def zoomin(file):
+    matriksawal = filetomatriks(file)
+    if matriksawal.ndim == 3:
+        matrikshasil = numpy.zeros((matriksawal.shape[0]*2, matriksawal.shape[1]*2, matriksawal.shape[2]))  #Inisialisasi matriks kosong sebagai hasilnya
+        for color in range (matriksawal.shape[2]):
+            for i in range (matriksawal.shape[0]):
+                for j in range (matriksawal.shape[1]):
+                    matrikshasil[i*2,j*2,color] = matriksawal[i,j,color]
+                    matrikshasil[i*2+1,j*2+1,color] = matriksawal[i,j,color]
+                    matrikshasil[i*2+1,j*2,color] = matriksawal[i,j,color]
+                    matrikshasil[i*2,j*2+1,color] = matriksawal[i,j,color]
+    else:
+        matrikshasil = numpy.zeros((matriksawal.shape[0]*2, matriksawal.shape[1]*2))  #Inisialisasi matriks kosong sebagai hasilnya
+        for i in range (matriksawal.shape[0]):
+            for j in range (matriksawal.shape[1]):
+                    matrikshasil[i*2,j*2] = matriksawal[i,j]
+                    matrikshasil[i*2+1,j*2+1] = matriksawal[i,j]
+                    matrikshasil[i*2+1,j*2] = matriksawal[i,j]
+                    matrikshasil[i*2,j*2+1] = matriksawal[i,j]
+    stringgambar = matrikstostring(matrikshasil,file)
+    return stringgambar
+
+def zoomout(file):
+    matriksawal = filetomatriks(file)
+    baris = floor(matriksawal.shape[0]/2)
+    kolom = floor(matriksawal.shape[1]/2)
+    if matriksawal.ndim == 3:
+        matrikshasil = numpy.zeros((baris,kolom, matriksawal.shape[2]))  #Inisialisasi matriks kosong sebagai hasilnya
+        for color in range (matriksawal.shape[2]):
+            for i in range (baris):
+                for j in range (kolom):
+                    temp = int(matriksawal[i*2,j*2,color]) + int(matriksawal[i*2+1,j*2+1,color]) + int(matriksawal[i*2+1,j*2,color]) + int(matriksawal[i*2,j*2+1,color])
+                    matrikshasil[i,j,color] = round(temp/4)
+                    if i == 0 and j == 0 and color == 0:
+                        print(temp)
+        print(matrikshasil[0,0,0],matriksawal[0,0,0],matriksawal[0,1,0],matriksawal[1,0,0],matriksawal[1,1,0])
+    else:
+        matrikshasil = numpy.zeros((baris,kolom))  #Inisialisasi matriks kosong sebagai hasilnya
+        for i in range (baris):
+            for j in range (kolom):
+                temp = int(matriksawal[i*2,j*2]) + int(matriksawal[i*2+1,j*2+1]) + int(matriksawal[i*2+1,j*2]) + int(matriksawal[i*2,j*2+1])
+                matrikshasil[i,j] = round(temp/4)
     stringgambar = matrikstostring(matrikshasil,file)
     return stringgambar
