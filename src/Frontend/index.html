@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Our CSS JS -->
     <link rel="stylesheet" href="index.css" />
@@ -46,86 +47,90 @@
     <!-- SIDEBAR AND PICTURE -->
     <div class="parent" id="photoshop" display="none">
         <div class="icon-bar">
-            <div>
+            <div id="ngelurusin">
                 <form method="post" action='javascript:edit("turnleft")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> turn left</button>
+                    <button type="submit" class="fa fa-rotate-left"></button>
                 </form>
                 <form method="post" action='javascript:edit("turnright")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> turn right</button>
+                    <button type="submit" class="fa fa-rotate-right"></button>
                 </form>
                 <form method="post" action='javascript:edit("fliph")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> flip h</button>
+                    <button type="submit" class="fa fill"><img src="./assets/hflip.png"></button>
                 </form>
                 <form method="post" action='javascript:edit("flipv")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> flip v</button>
+                    <button type="submit" class="fa fill"><img src="./assets/vflip.png"></button>
                 </form>
                 <form method="post" action='javascript:edit("negative")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> negative</button>
+                    <button type="submit" class="fa fa-minus"></button>
                 </form>
                 <form method="post" action='javascript:edit("complement")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> complement</button>
+                    <button type="submit" class="fa fa-star-half-empty"></button>
                 </form>
                 <form method="post" action='javascript:edit("zoomin")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> zoomin</button>
+                    <button type="submit" class="glyphicon glyphicon-zoom-in"></button>
                 </form>
                 <form method="post" action='javascript:edit("zoomout")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> zoomout</button>
+                    <button type="submit" class="glyphicon glyphicon-zoom-out"></button>
                 </form>
                 <form method="post" action='javascript:edit("brighten")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> brighten</button>
+                    <button type="submit" class="fa fa-sun-o"></button>
                 </form>
                 <form method="post" action='javascript:edit("darken")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> darken</button>
+                    <button type="submit" class="fa fa-moon-o"></button>
                 </form>
                 <form method="post" action='javascript:edit("greyscale")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> grayscale</button>
+                    <button type="submit" class="fa fa-adjust"></button>
                 </form>
                 <form method="post" action='javascript:edit("contrast")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> contrast</button>
+                    <button type="submit" class="fa fa-thermometer-1"></button>
                 </form>
                 <form method="post" action='javascript:edit("tpangkat")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> pangkat</button>
+                    <button type="submit" class="fa fa-angle-up"></button>
                 </form>
                 <form method="post" action='javascript:edit("tlog")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> log</button>
+                    <button type="submit" class="fa fa-angle-down"></button>
                 </form>
                 <form method="post" action='javascript:edit("gblur")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> gblur</button>
+                    <button type="submit" class="fa fa-bullseye"></button>
                 </form>
                 <form method="post" action='javascript:edit("hfilter")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> sharpen</button>
+                    <button type="submit" class="fa fa-strikethrough"></button>
                 </form>
                 <form method="post" action='javascript:edit("lfilter")' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> noise</button>
+                    <button type="submit" class="fa fa-th"></button>
                 </form>
                 <form method="post" action='javascript:undo()' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> undo</button>
+                    <button type="submit" class="fa fa-arrow-left"></button>
                 </form>
                 <form method="post" action='javascript:redo()' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> redo</button>
+                    <button type="submit" class="fa fa-arrow-right"></button>
                 </form>
                 <form method="post" action='javascript:reset()' class="inline">
                     <input type="hidden">
-                    <button type="submit" class="fa fa-home"> reset</button>
+                    <button type="submit" class="fa fa-refresh"></button>
+                </form>
+                <form method="post" action='javascript:save()' class="inline">
+                    <input type="hidden">
+                    <button type="submit" class="fa fa-save"></button>
                 </form>
             </div>
         </div>
@@ -136,8 +141,8 @@
 
     <!-- Footer -->
     <footer>
-        <div style="font-size: 1rem; ">Saul Sayers - 13520094</div>
-        <div style="font-size: 1rem; "><strong>Task 2 Seleksi IRK</strong></div>
+        <div style="font-size: 1.5rem; ">Saul Sayers - 13520094</div>
+        <div style="font-size: 1.5rem; "><strong>Task 2 Seleksi IRK</strong></div>
     </footer>
 
 </html>

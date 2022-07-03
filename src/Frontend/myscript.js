@@ -1,6 +1,7 @@
 var baseimg;
 var currentimg;
 var fileformat;
+var filename;
 var arrimg;
 var step;
 
@@ -9,6 +10,7 @@ function uploadpic() {
     document.getElementById("photoshop").style.display = "flex";
     let temp = document.getElementById("file").files[0];
     fileformat = temp.type
+    filename = temp.name
     if (temp) {
         let fileReader = new FileReader();
         fileReader.readAsDataURL(temp);
@@ -83,4 +85,12 @@ function redo() {
         img.src = currentimg
         imgdiv.appendChild(img)
     }
+}
+
+function save() {
+    const linkSource = currentimg;
+    const downloadLink = document.createElement("a");
+    downloadLink.href = linkSource;
+    downloadLink.download = filename.split('.')[0] + "-edited";
+    downloadLink.click();
 }
