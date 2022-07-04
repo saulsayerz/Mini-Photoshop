@@ -42,7 +42,7 @@ def gaussblur(file):
                         for l in range (KERNEL_LEFT,KERNEL_RIGHT):
                             if i+k >= 0 and i+k < matriksawal.shape[0] and j+l >= 0 and j+l < matriksawal.shape[1]:
                                 total += int(matriksawal[i+k,j+l])*gaussarr[5*k + l + 6]
-                    matrikshasil[i,j,color] = total
+                    matrikshasil[i,j] = total
     stringgambar = matrikstostring(matrikshasil,file)
     return stringgambar
 
@@ -82,7 +82,7 @@ def sharpen(file):
                         for l in range (KERNEL_LEFT,KERNEL_RIGHT):
                             if i+k >= 0 and i+k < matriksawal.shape[0] and j+l >= 0 and j+l < matriksawal.shape[1]:
                                 total += int(matriksawal[i+k,j+l])*gaussarr[5*k + l + 6]
-                    matrikshasil[i,j,color] = total
+                    matrikshasil[i,j] = total
 
     matrikshasil = matriksawal + 5*(matriksawal-matrikshasil)
     stringgambar = matrikstostring(matrikshasil,file)
