@@ -24,7 +24,6 @@ function uploadpic() {
             imgdiv.appendChild(img)
             step = 0
             arrimg.push(baseimg)
-            console.log(arrimg)
         });
     }
 }
@@ -45,10 +44,9 @@ async function edit(command) {
     imgdiv.innerHTML = ""
     step += 1
     let img = document.createElement('img');
-    img.src = "data:image/" + fileformat + ";base64," + myJson["result"]
-    currentimg = "data:image/" + fileformat + ";base64," + myJson["result"]
+    img.src = "data:" + fileformat + ";base64," + myJson["result"]
+    currentimg = "data:" + fileformat + ";base64," + myJson["result"]
     arrimg.push(currentimg)
-    console.log(arrimg)
     imgdiv.appendChild(img)
 }
 

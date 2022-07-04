@@ -36,18 +36,14 @@ def gaussianfunc(x,y):
     # Parameter : x, y
     # Return : nilai gaussian
 
-    return (1/(2*numpy.pi*1.5**2))*numpy.exp(-((x**2)+(y**2))/(2*1.5**2))
+    return (1/(2*numpy.pi*50**2))*numpy.exp(-((x**2)+(y**2))/(2*50**2))
 
 def gausshighpassfunc(x,y):
     # Fungsi ini menghitung nilai gaussian highpass
     # Parameter : x, y
     # Return : nilai gaussian highpass
 
-    return 1 - numpy.exp(-((x**2)+(y**2))/(1.5**2))
+    return 1 - numpy.exp(-((x**2)+(y**2))/(50**2))
 
-def gausslowpassfunc(x,y):
-    # Fungsi ini menghitung nilai gaussian lowpass
-    # Parameter : x, y
-    # Return : nilai gaussian lowpass
-
-    return numpy.exp(-((x**2)+(y**2))/(1.5**2))
+def Gaussian(z,u):
+    return numpy.exp((-((z-u)**2))/(2*50**2))

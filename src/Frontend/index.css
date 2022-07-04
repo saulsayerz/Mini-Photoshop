@@ -298,7 +298,6 @@ footer div {
 }
 
 .psimage {
-    display: block;
     margin: 0 auto;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
@@ -334,11 +333,6 @@ footer div {
     color: red;
 }
 
-#photoshop,
-#form-part {
-    transition: .6s ease opacity, .6s ease transform;
-}
-
 #photoshop {
     display: flex;
 }
@@ -372,4 +366,8 @@ footer div {
     width: 25px;
     filter: invert(100%);
     height: 25px;
+}
+
+#photoshop {
+    display: none;
 }

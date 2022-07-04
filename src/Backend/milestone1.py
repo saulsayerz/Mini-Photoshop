@@ -105,14 +105,12 @@ def complement(file):
     if matriksawal.ndim == 3:
         matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1], matriksawal.shape[2]))  #Inisialisasi matriks kosong sebagai hasilnya
         for color in range (matriksawal.shape[2]):
-            for i in range (matriksawal.shape[0]):
-                for j in range (matriksawal.shape[1]):
-                    if color < 3:
-                        for i in range (matriksawal.shape[0]):
-                            for j in range (matriksawal.shape[1]):
-                                matrikshasil[i,j,color] = ~(matriksawal[i,j,color])
-                    else :
-                        matrikshasil[:,:,color] = matriksawal[:,:,color]
+            if color < 3:
+                for i in range (matriksawal.shape[0]):
+                    for j in range (matriksawal.shape[1]):
+                        matrikshasil[i,j,color] = ~(matriksawal[i,j,color])
+            else :
+                matrikshasil[:,:,color] = matriksawal[:,:,color]
     else:
         matrikshasil = numpy.zeros((matriksawal.shape[0], matriksawal.shape[1]))  #Inisialisasi matriks kosong sebagai hasilnya
         for i in range (matriksawal.shape[0]):

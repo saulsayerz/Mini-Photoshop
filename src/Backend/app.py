@@ -44,9 +44,9 @@ def edit_image(command):
     elif command == "zoomout":
         encoded_image = zoomout(decoded_data)
     elif command == "brighten":
-        encoded_image = brighten(75,decoded_data)
+        encoded_image = brighten(50,decoded_data)
     elif command == "darken":
-        encoded_image = brighten(-75,decoded_data)
+        encoded_image = brighten(-50,decoded_data)
     elif command == "contrast":
         encoded_image = contrast(decoded_data)
     elif command == "tpangkat":
@@ -54,11 +54,11 @@ def edit_image(command):
     elif command == "tlog":
         encoded_image = transformasi("logaritma",decoded_data)
     elif command == "gblur":
-        encoded_image = gauss("blur",decoded_data)
+        encoded_image = gaussblur(decoded_data)
     elif command == "hfilter":
-        encoded_image = gauss("sharpen",decoded_data)
+        encoded_image = sharpen(decoded_data)
     elif command == "lfilter":
-        encoded_image = gauss("smooth",decoded_data)
+        encoded_image = noise(decoded_data)
     else: 
         encoded_image = None
 
